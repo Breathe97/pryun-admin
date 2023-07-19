@@ -146,6 +146,7 @@ const Disabled = computed(() => {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  color: #222222;
   .login-bg {
     position: absolute;
     left: 0;
