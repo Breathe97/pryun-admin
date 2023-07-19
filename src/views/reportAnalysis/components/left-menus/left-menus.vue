@@ -76,9 +76,9 @@ const list = ref([
   { id: 13, name: '航空公司运行监测看板' },
   { id: 14, name: '人力资源管理综合分析' },
   { id: 15, name: '云服务平台数据大屏' },
-  { id: 15, name: '无线网管理中心' },
-  { id: 15, name: '某运动品牌销售看板' },
-  { id: 15, name: '某运动品牌销售看板某运动品牌销售看板' },
+  { id: 16, name: '无线网管理中心' },
+  { id: 17, name: '某运动品牌销售看板' },
+  { id: 18, name: '某运动品牌销售看板某运动品牌销售看板' },
 ])
 
 const activeIndex = ref(1)
@@ -92,7 +92,9 @@ const select = (item: any) => {
   padding: 16px;
   box-sizing: border-box;
   position: relative;
-  height: calc(100vh - 68px);
+  // height: calc(100vh - 68px);
+  height: 100%;
+  overflow-y: overlay;
   display: flex;
   flex-direction: column;
   .title {
