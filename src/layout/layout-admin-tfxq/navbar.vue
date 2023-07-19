@@ -141,7 +141,8 @@ const goBigScreen = () => {
   color: rgba(65, 125, 255, 1);
 }
 .menus-item-active {
-  background-color: rgba(17, 18, 22, 1);
+  // background-color: rgba(17, 18, 22, 1);
+  background-color: var(--color-bg);
   color: rgba(65, 125, 255, 1);
 }
 .navbar-content {

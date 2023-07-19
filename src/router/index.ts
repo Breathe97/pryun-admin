@@ -6,7 +6,7 @@ import { StoreSystem } from '@/store/system'
 const routes: any = [
   {
     path: '/',
-    redirect: '/users/users-index',
+    redirect: '/home/home-index',
     meta: {
       keepAlive: false,
     },
