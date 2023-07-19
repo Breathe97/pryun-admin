@@ -1,6 +1,6 @@
 @import './styles/color.css';
 @import './styles/color_dark.css';
-/* @import './styles/scrollbar.css'; */
+@import './styles/scrollbar.css';
 @import './styles/icon.css';
 @import './styles/element-style.css';
 

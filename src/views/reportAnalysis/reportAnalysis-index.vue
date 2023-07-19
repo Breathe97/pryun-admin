@@ -19,6 +19,7 @@ import rightContent from './components/right-content/right-content.vue'
   display: flex;
   align-items: center;
   .left {
+    box-sizing: border-box;
     position: relative;
     width: 320px;
     height: 100%;

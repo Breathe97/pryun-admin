@@ -1,9 +1,10 @@
 <template>
-  <div class="left-menus">
+  <div class="left-menus min-scrollbar">
+    <div style="min-height: 16px; flex-shrink: 0"></div>
     <div class="search">
       <el-input v-model="inf.key" placeholder="输入报表名称" clearable :suffix-icon="Search" />
     </div>
-    <div class="title">
+    <div class="title backdrop-filter">
       <div class="title-text">默认报表</div>
       <div style="flex: 1; width: 0"></div>
     </div>
@@ -26,7 +27,8 @@
         </div>
       </div>
     </div>
-    <div class="title">
+    <div style="min-height: 16px; flex-shrink: 0"></div>
+    <div class="title backdrop-filter">
       <div class="title-text">我的报表</div>
       <div style="flex: 1; width: 0"></div>
       <div class="icon-btn filter-hover">
@@ -54,6 +56,7 @@
         </div>
       </div>
     </div>
+    <div style="min-height: 16px; flex-shrink: 0"></div>
   </div>
 </template>
 <script lang="ts" setup>
@@ -68,6 +71,9 @@ const def_list = ref([
   { id: 1, name: '【官方示例】阿勒泰地区旅游数据' },
   { id: 2, name: '【官方示例】2021年全国GDP数据' },
   { id: 3, name: '【官方示例】某节目相关数据分析' },
+  { id: 4, name: '【官方示例】某节目相关数据分析' },
+  { id: 5, name: '【官方示例】某节目相关数据分析' },
+  { id: 6, name: '【官方示例】某节目相关数据分析' },
 ])
 
 const list = ref([
@@ -79,6 +85,16 @@ const list = ref([
   { id: 16, name: '无线网管理中心' },
   { id: 17, name: '某运动品牌销售看板' },
   { id: 18, name: '某运动品牌销售看板某运动品牌销售看板' },
+  { id: 19, name: '某运动品牌销售看板某运动品牌销售看板' },
+  { id: 20, name: '某运动品牌销售看板某运动品牌销售看板' },
+  { id: 21, name: '某运动品牌销售看板某运动品牌销售看板' },
+  { id: 22, name: '某运动品牌销售看板某运动品牌销售看板' },
+  { id: 23, name: '某运动品牌销售看板某运动品牌销售看板' },
+  { id: 24, name: '某运动品牌销售看板某运动品牌销售看板' },
+  { id: 25, name: '某运动品牌销售看板某运动品牌销售看板' },
+  { id: 26, name: '某运动品牌销售看板某运动品牌销售看板' },
+  { id: 27, name: '某运动品牌销售看板某运动品牌销售看板' },
+  { id: 28, name: '某运动品牌销售看板某运动品牌销售看板' },
 ])
 
 const activeIndex = ref(1)
@@ -89,7 +105,7 @@ const select = (item: any) => {
 </script>
 <style lang="scss" scoped>
 .left-menus {
-  padding: 16px;
+  padding: 0 16px;
   box-sizing: border-box;
   position: relative;
   height: 100%;
@@ -97,12 +113,17 @@ const select = (item: any) => {
   display: flex;
   flex-direction: column;
   .title {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 9;
     box-sizing: border-box;
     font-size: 18px;
     width: 100%;
-    height: 60px;
+    min-height: 60px;
     display: flex;
     align-items: center;
+    background-color: var(--color-bg);
   }
   .search {
     height: 40px;
@@ -110,7 +131,6 @@ const select = (item: any) => {
     align-items: center;
   }
   .list {
-    margin-top: 10px;
     width: 100%;
     .list-item {
       padding: 0 16px;
