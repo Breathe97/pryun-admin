@@ -18,13 +18,16 @@
       </div>
       <div style="width: 0; flex: 1; min-width: 10px"></div>
       <div class="btns">
+        <el-button plain>编辑</el-button>
         <el-button plain>全屏预览</el-button>
         <el-button plain>分享</el-button>
       </div>
     </div>
     <div class="preview-content">
-      <PrScreenAdapter :width="1920" :height="1080" :autoRatio="false" bg="rgba(0,0,0,0)">
-        <div class="preview-content-view"></div>
+      <PrScreenAdapter :width="1920 * 1" :height="1080 * 1" mode="aspectFit" bg="rgba(0,0,0,0)">
+        <div class="preview-content-view">
+          <div class="preview-content-view-img"></div>
+        </div>
       </PrScreenAdapter>
     </div>
   </div>
@@ -32,6 +35,7 @@
 
 <script lang="ts" setup>
 import { PrScreenAdapter } from 'pr-screen-adapter'
+// import PrScreenAdapter from '@/components/PrScreenAdapter/PrScreenAdapter.vue'
 import { ref } from 'vue'
 
 const info = ref({
@@ -107,6 +111,14 @@ const info = ref({
     .preview-content-view {
       width: 100%;
       height: 100%;
+      display: flex;
+      // flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .preview-content-view-img {
+      width: 1920px;
+      height: 1080px;
       background-image: url('../../static/example_1.jpg');
       background-size: 100% 100%;
       background-repeat: no-repeat;
