@@ -10,7 +10,7 @@
     <div class="list">
       <div class="list-item" :class="[{ 'list-item-active': activeIndex === item.id }]" v-for="(item, index) in def_list" @click="select(item)">
         <div class="list-item-name">{{ item.name }}</div>
-        <div class="icon-btn">
+        <div class="icon-btn filter-hover">
           <el-dropdown trigger="click">
             <el-icon :size="16"><MoreFilled /></el-icon>
             <template #dropdown>
@@ -29,7 +29,7 @@
     <div class="title">
       <div class="title-text">我的报表</div>
       <div style="flex: 1; width: 0"></div>
-      <div class="icon-btn">
+      <div class="icon-btn filter-hover">
         <el-tooltip content="创建一个新的报表" placement="top" effect="light">
           <el-icon :size="20"><Plus /></el-icon>
         </el-tooltip>
@@ -38,7 +38,7 @@
     <div class="list">
       <div class="list-item" :class="[{ 'list-item-active': activeIndex === item.id }]" v-for="(item, index) in list" @click="select(item)">
         <div class="list-item-name">{{ item.name }}</div>
-        <div class="icon-btn">
+        <div class="icon-btn filter-hover">
           <el-dropdown trigger="click">
             <el-icon :size="16"><MoreFilled /></el-icon>
             <template #dropdown>
@@ -92,7 +92,6 @@ const select = (item: any) => {
   padding: 16px;
   box-sizing: border-box;
   position: relative;
-  // height: calc(100vh - 68px);
   height: 100%;
   overflow-y: overlay;
   display: flex;
@@ -152,10 +151,6 @@ const select = (item: any) => {
     display: flex;
     align-items: center;
     cursor: pointer;
-    transition: all 230ms ease-out;
-  }
-  .icon-btn:hover {
-    filter: drop-shadow(0 0 0.2em #ffffff);
   }
 }
 </style>

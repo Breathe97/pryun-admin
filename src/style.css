@@ -17,7 +17,12 @@ body {
   overflow-x: hidden;
   overflow-y: overlay;
 }
-
+.filter-hover {
+  transition: filter 230ms ease-out;
+}
+.filter-hover:hover {
+  filter: drop-shadow(0 0 0.2em);
+}
 .backdrop-filter {
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);

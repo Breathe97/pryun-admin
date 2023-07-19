@@ -44,7 +44,7 @@ const goBack = async () => {
 </script>
 <style lang="scss" scoped>
 .card {
-  padding: 20px;
+  padding: 32px 40px;
   width: 100%;
   box-sizing: border-box;
   display: flex;
@@ -55,7 +55,7 @@ const goBack = async () => {
     background-color: var(--color-bg);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 0 20px 4px rgba(128, 128, 128, 0.1);
+    box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.1);
     .back {
       padding: 0 20px;
       height: 60px;

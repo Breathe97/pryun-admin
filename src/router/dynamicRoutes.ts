@@ -48,7 +48,6 @@ export const dynamicRoutes: RouteRecordRaw[] = [
         path: '/dataIndex/dataIndex-index',
         meta: {
           title: '指标可视化',
-          showFooter: false,
         },
         component: () => import('../views/dataIndex/dataIndex-index.vue'),
       },
@@ -66,9 +65,17 @@ export const dynamicRoutes: RouteRecordRaw[] = [
         meta: {
           icons: [icons.chart],
           title: '报表分析',
-          showFooter: false,
         },
         component: () => import('../views/reportAnalysis/reportAnalysis-index.vue'),
+      },
+      {
+        name: 'reportAnalysis-edit',
+        path: '/reportAnalysis/reportAnalysis-edit',
+        meta: {
+          icons: [icons.chart],
+          title: '报表编辑',
+        },
+        component: () => import('../views/reportAnalysis/reportAnalysis-edit.vue'),
       },
     ],
   },

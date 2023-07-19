@@ -2,6 +2,7 @@
   <div>
     <ContentTable>
       <template #menu>
+        <div class="title">用户列表</div>
         <div class="menus">
           <div class="menus-item">
             <el-button type="primary">新增</el-button>
@@ -20,7 +21,7 @@
         <el-table-column label="头像" width="120" align="center">
           <template #default="scope">
             <div style="display: flex; align-items: center; justify-content: center">
-              <el-avatar :size="36" shape="square" :src="scope.row.avatar" />
+              <el-avatar :size="32" shape="square" :src="scope.row.avatar" />
             </div>
           </template>
         </el-table-column>
@@ -110,8 +111,18 @@ getData()
 </script>
 
 <style lang="scss" scoped>
+.title {
+  margin-top: 20px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  font-size: 18px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
 .menus {
-  padding: 20px;
+  padding: 16px 20px;
   display: flex;
   align-items: center;
   .menus-span {

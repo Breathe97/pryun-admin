@@ -1,15 +1,15 @@
 <template>
   <div class="reportAnalysis">
     <div class="left">
-      <leftReports></leftReports>
+      <leftIndicatorItems></leftIndicatorItems>
     </div>
     <div class="right">
-      <rightContent></rightContent>
+      <rightContent mode="edit"></rightContent>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
-import leftReports from './components/left-reports/left-reports.vue'
+import leftIndicatorItems from './components/left-indicator-items/left-indicator-items.vue'
 import rightContent from './components/right-content/right-content.vue'
 </script>
 <style lang="scss" scoped>
