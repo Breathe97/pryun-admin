@@ -1,4 +1,4 @@
-import http from '@/api/core/request'
+import http from '../core/http'
 import type { AxiosRequestConfig } from 'axios'
 
 // 发送短信验证码

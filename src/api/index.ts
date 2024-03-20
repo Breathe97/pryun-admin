@@ -1,4 +1,4 @@
-import http from '@/api/core/request'
+import http from './core/http'
 import type { AxiosRequestConfig } from 'axios'
 // 示例
 export const getTest = (options?: AxiosRequestConfig) => {

@@ -1,4 +1,4 @@
-import http from '@/api/core/request'
+import http from '../core/http'
 import type { AxiosRequestConfig } from 'axios'
 
 // 增加用户
