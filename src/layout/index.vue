@@ -8,8 +8,8 @@
 
 <script lang="ts" setup>
 import { ElConfigProvider } from 'element-plus'
-// import LayoutAdmin from './layout-admin/index.vue'
-import LayoutAdmin from './layout-admin-tfxq/index.vue'
+import LayoutAdmin from './layout-admin/index.vue'
+import LayoutSuper from './layout-admin-tfxq/index.vue'
 import ContentView from './components/ContentView/ContentView.vue'
 
 import { ref, computed } from 'vue'
@@ -24,7 +24,7 @@ const role = 'admin' // 可能需要根据角色来动态显示不同的布局
 
 const layoutList = {
   admin: LayoutAdmin,
-  super: LayoutAdmin,
+  super: LayoutSuper,
 }
 
 const Layout = computed(() => {

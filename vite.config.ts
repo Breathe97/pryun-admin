@@ -1,14 +1,19 @@
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import type { ProxyOptions } from 'vite'
+
+type Type_mode_keys = 'development' | 'production' // 定义当前环境
+
+type ProxyObject = Partial<Record<Type_mode_keys, { [key: string]: ProxyOptions }>>
 
 // 代理配置
-const proxyOptions = {
+const proxyObject: ProxyObject = {
   // 开发环境
   development: {
     '/api-admin-dev': {
       target: 'https://api.pryun.vip',
       changeOrigin: true,
-      rewrite: (path) => path.replace(new RegExp('^/api-admin-dev'), ''),
+      rewrite: (path: string) => path.replace(new RegExp('^/api-admin-dev'), ''),
     },
   },
   // 生产环境
@@ -16,13 +21,15 @@ const proxyOptions = {
     '/api-admin-pro': {
       target: 'https://api.pryun.vip',
       changeOrigin: true,
-      rewrite: (path) => path.replace(new RegExp('^/api-admin-pro'), ''),
+      rewrite: (path: string) => path.replace(new RegExp('^/api-admin-pro'), ''),
     },
   },
 }
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
+  console.log('\x1b[38;2;0;151;255m%c%s\x1b[0m', 'color:#0097ff;padding:16px 0;', `------->Breathe:mode`, mode)
+
   const { VITE_BASE_URL = '' } = loadEnv(mode, './')
 
   const base = VITE_BASE_URL ? `/${VITE_BASE_URL}/` : ''
@@ -35,7 +42,7 @@ export default defineConfig(({ mode }) => {
     build: { outDir },
     server: {
       host: '0.0.0.0', // 暴露本地服务到局域网
-      proxy: proxyOptions[mode],
+      proxy: proxyObject[mode as Type_mode_keys],
     },
     resolve: {
       alias: {
