@@ -76,7 +76,7 @@
 import { StoreSystem } from '@/store/system'
 import { StoreUser } from '@/store/user'
 import md5 from '@/tools/md5.js'
-import * as authApi from '@/api/auth'
+import * as authApi from '@/api/modules/auth'
 import { ref, computed } from 'vue'
 import range from './components/range/range.vue'
 import { ElMessageBox, ElInput, ElButton } from 'element-plus'

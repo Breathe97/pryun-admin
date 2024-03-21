@@ -1,5 +1,5 @@
-import * as userApi from '@/api/user'
-import * as authApi from '@/api/auth'
+import * as userApi from '@/api/modules/user'
+import * as authApi from '@/api/modules/auth'
 import { defineStore } from 'pinia'
 import { ElMessageBox } from 'element-plus'
 import { useRouter } from 'vue-router'
