@@ -39,5 +39,6 @@ export const usersGetInfo = (options?: AxiosRequestConfig) => {
     method: 'GET',
     url: '/users-get-info',
     ...options,
+    showErrMsg: false,
   })
 }
