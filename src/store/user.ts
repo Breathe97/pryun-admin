@@ -13,8 +13,8 @@ export const StoreUser = defineStore('StoreUser', {
   ],
   state: () => {
     return {
-      token: '',
-      userInfo: {},
+      token: '', // 用户凭证
+      userInfo: {}, // 用户信息
     }
   },
   actions: {
