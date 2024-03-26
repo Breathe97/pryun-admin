@@ -20,7 +20,7 @@ import en from 'element-plus/dist/locale/en.mjs'
 const language = ref('zh-cn')
 const locale = computed(() => (language.value === 'zh-cn' ? zhCn : en))
 
-const role = 'admin' // 可能需要根据角色来动态显示不同的布局
+const role = 'super' // 可能需要根据角色来动态显示不同的布局
 
 const layoutList = {
   admin: LayoutAdmin,
@@ -30,7 +30,7 @@ const layoutList = {
 const Layout = computed(() => {
   let _layout = layoutList[role]
   if (!_layout) {
-    console.error(`------->Breathe:当前布局组件不存在`, { role })
+    console.error(`------->Breathe:当前角色布局组件不存在`, { role })
   }
   return _layout
 })
