@@ -30,10 +30,10 @@ const routes: any = [
   },
 ]
 
-const VITE_BASE_URL = import.meta.env.VITE_BASE_URL
+const VITE_BASE_PATH = import.meta.env.VITE_BASE_PATH
 
 const router = createRouter({
-  history: true ? createWebHistory(`/${VITE_BASE_URL}`) : createWebHashHistory(`/${VITE_BASE_URL}`), // 路由模式
+  history: true ? createWebHistory(`/${VITE_BASE_PATH}`) : createWebHashHistory(`/${VITE_BASE_PATH}`), // 路由模式
   routes,
 })
 

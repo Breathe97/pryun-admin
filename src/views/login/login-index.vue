@@ -109,19 +109,24 @@ const login = async () => {
   await new Promise((a) => setTimeout(() => a(true), 300))
   let _inf = { ...inf.value }
   _inf.password = md5(_inf.password)
-  await authApi.login({ data: _inf }).then(async (res) => {
-    // console.log('\x1b[38;2;0;151;255m%c%s\x1b[0m', 'color:#0097ff;padding:16px 0;', `------->Breathe:res`, res)
-    const { code = 0, msg, data } = res
-    if (code !== 200) {
-      ElMessageBox.alert(msg, '提示', { confirmButtonText: '好的' })
-    }
-    storeUser.setToken(data.token || '')
-    await storeSystem.init() // 初始化系统参数
-    // 登录成功
-    router.push('/')
-  })
-  loading.value = false
-  rangeState.value = false
+  await authApi
+    .login({ data: _inf })
+    .then(async (res) => {
+      // console.log('\x1b[38;2;0;151;255m%c%s\x1b[0m', 'color:#0097ff;padding:16px 0;', `------->Breathe:res`, res)
+      const { code = 0, msg, data } = res
+      if (code !== 200) {
+        rangeState.value = false
+        ElMessageBox.alert(msg, '提示', { confirmButtonText: '好的' })
+      }
+      storeUser.setToken(data.token || '')
+      await storeSystem.init() // 初始化系统参数
+      // 登录成功
+      router.push('/')
+    })
+    .finally(() => {
+      loading.value = false
+      rangeState.value = false
+    })
 }
 
 const open = () => {

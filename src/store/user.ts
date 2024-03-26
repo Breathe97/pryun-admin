@@ -1,8 +1,6 @@
 import * as userApi from '@/api/modules/user'
 import * as authApi from '@/api/modules/auth'
 import { defineStore } from 'pinia'
-import { ElMessageBox } from 'element-plus'
-import { useRouter } from 'vue-router'
 
 // 系统相关的
 export const StoreUser = defineStore('StoreUser', {
@@ -25,7 +23,7 @@ export const StoreUser = defineStore('StoreUser', {
     },
     // 获取用户信息
     async usersGetInfo() {
-      const res = await userApi.usersGetInfo()
+      const res = await userApi.usersGetInfo({ showErrMsg: true })
       const { code = 0, msg, data } = res
       if (code === 200) {
         this['userInfo'] = data

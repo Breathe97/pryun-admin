@@ -2,18 +2,18 @@ import axios from 'axios'
 import { ElNotification } from 'element-plus'
 import { StoreUser } from '@/store/user'
 
-const VITE_BASE_URL = import.meta.env.VITE_BASE_URL
+const VITE_BASE_PATH = import.meta.env.VITE_BASE_PATH
 const http = axios.create({
-  baseURL: `/api-${VITE_BASE_URL}`,
+  baseURL: `/api-${VITE_BASE_PATH}`,
   showErrMsg: true, //是否显示消息
 })
 
 // 添加请求拦截器
 http.interceptors.request.use(
   function (config) {
+    console.log('\x1b[38;2;0;151;255m%c%s\x1b[0m', 'color:#0097ff;padding:16px 0;', `------->Breathe:config`, config)
     const storeUser = StoreUser()
-    // const headers: any = { token: storeUser.token }
-    const headers: any = { Authorization: storeUser.token }
+    const headers: any = { token2: storeUser.token }
     // 在发送请求之前做些什么
     config.headers = { ...headers, ...config.headers }
     return config
@@ -33,7 +33,7 @@ http.interceptors.response.use(
     const { config, status = 200, data } = response
 
     // 判断业务代码是否正常
-    const { code = 0, message = '业务繁忙' } = data || {}
+    const { code = 0, message = '服务器繁忙' } = data || {}
     if (config.showErrMsg && code !== 200) {
       ElNotification({ title: '异常错误', message, type: 'error' })
     }

@@ -4,7 +4,7 @@ import type { ProxyOptions } from 'vite'
 
 type Type_mode_keys = 'development' | 'production' // 定义当前环境
 
-type ProxyObject = Partial<Record<Type_mode_keys, { [key: string]: ProxyOptions }>>
+type ProxyObject = Partial<Record<Type_mode_keys, { [key: string]: ProxyOptions }>> // 问就是网上抄的
 
 // 代理配置
 const proxyObject: ProxyObject = {
@@ -30,11 +30,12 @@ const proxyObject: ProxyObject = {
 export default defineConfig(({ mode }) => {
   console.log('\x1b[38;2;0;151;255m%c%s\x1b[0m', 'color:#0097ff;padding:16px 0;', `------->Breathe:mode`, mode)
 
-  const { VITE_BASE_URL = '' } = loadEnv(mode, './')
+  // 根据不同的环境获取不同的base_path
+  const { VITE_BASE_PATH = '' } = loadEnv(mode, './')
 
-  const base = VITE_BASE_URL ? `/${VITE_BASE_URL}/` : ''
+  const base = VITE_BASE_PATH ? `/${VITE_BASE_PATH}/` : ''
 
-  const outDir = `dist_${VITE_BASE_URL}`
+  const outDir = `dist_${VITE_BASE_PATH}` // 打包路径的命名区分
 
   return {
     plugins: [vue()],
