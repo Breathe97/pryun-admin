@@ -1,23 +1,61 @@
 <template>
   <div style="padding: 20px; box-sizing: border-box">
-    <Card title="销售统计">
-      <div class="card-item">
-        <svg class="pr-icon" aria-hidden="true" style="font-size: 40px">
-          <use :xlink:href="`#pr-icon-pryun`"></use>
-        </svg>
+    <div class="box">
+      <div class="box-row">
+        <div class="box-row-item" style="flex: 2">
+          <Card title="销售额">
+            <div class="content">
+              <div class="card-item">
+                <div class="title">今日销售量</div>
+                <div class="value">{{ detail.monthCount }}</div>
+              </div>
+              <div class="card-item">
+                <div class="title">本月销售量</div>
+                <div class="value">{{ detail.monthCount }}</div>
+              </div>
+            </div>
+          </Card>
+        </div>
+        <div class="box-row-item" style="flex: 2">
+          <Card title="已销售">
+            <div class="content">
+              <div class="card-item">
+                <div class="title">待提交商品</div>
+                <div class="value">{{ detail.monthCount }}</div>
+              </div>
+              <div class="card-item">
+                <div class="title">待发货商品</div>
+                <div class="value">{{ detail.monthCount }}</div>
+              </div>
+            </div>
+          </Card>
+        </div>
+        <div class="box-row-item" style="flex: 3">
+          <Card title="退换货">
+            <div class="content">
+              <div class="card-item">
+                <div class="title">退款审核</div>
+                <div class="value">{{ detail.monthCount }}</div>
+              </div>
+              <div class="card-item">
+                <div class="title">退货审核</div>
+                <div class="value">{{ detail.monthCount }}</div>
+              </div>
+              <div class="card-item">
+                <div class="title">退货验收</div>
+                <div class="value">{{ detail.monthCount }}</div>
+              </div>
+            </div>
+          </Card>
+        </div>
       </div>
-    </Card>
+    </div>
   </div>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
 import Card from './components/card.vue'
 import * as workbenchApi from '@/api/modules/workbench'
-
-const icon = ref('calendar')
-const aaa = () => {
-  icon.value = icon.value === 'calendar' ? 'badge' : 'calendar'
-}
 
 const detail = ref({
   monthCount: 0,
@@ -42,7 +80,45 @@ const getData = () => {
 }
 getData()
 </script>
-<style scoped>
-.aa {
+<style scoped lang="scss">
+.box {
+  .box-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    align-items: stretch;
+    flex-wrap: wrap;
+
+    .box-row-item {
+      width: 0;
+      min-width: 300px;
+
+      flex: 1;
+    }
+  }
+}
+.content {
+  padding: 20px;
+  gap: 20px;
+  display: flex;
+  .card-item {
+    flex: 1;
+    width: 0;
+    background-color: rgba(0, 151, 255, 0.1);
+    border-radius: 6px;
+    padding: 10px 20px;
+    text-align: center;
+    transition: all ease-out 230ms;
+    &:hover {
+      background-color: rgba(0, 151, 255, 0.2);
+    }
+    .title {
+      font-size: 16px;
+      padding: 6px 0;
+    }
+    .value {
+      font-size: 24px;
+    }
+  }
 }
 </style>

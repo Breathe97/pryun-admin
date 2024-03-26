@@ -18,16 +18,17 @@ const props = defineProps({
 .card {
   border-radius: 12px;
   overflow: hidden;
+  height: 100%;
   .card-title {
     padding: 0 16px;
     height: 40px;
     display: flex;
     align-items: center;
-    background-color: rgba(64, 158, 254, 1);
-
+    background-color: #0097ff;
     color: #ffffff;
   }
   .card-content {
+    height: 100%;
     min-height: 80px;
     background-color: #ffffff;
   }
