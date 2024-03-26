@@ -14,7 +14,7 @@ export const sendSmsCode = (options?: AxiosRequestConfig) => {
 export const login = (options?: AxiosRequestConfig) => {
   return http({
     method: 'POST',
-    url: '/users-login',
+    url: '/api/supply/user/v1/login',
     ...options,
     showErrMsg: false,
   })
@@ -24,7 +24,7 @@ export const login = (options?: AxiosRequestConfig) => {
 export const logout = (options?: AxiosRequestConfig) => {
   return http({
     method: 'GET',
-    url: '/users-logout',
+    url: '/api/auth/login/loginOut',
     ...options,
   })
 }

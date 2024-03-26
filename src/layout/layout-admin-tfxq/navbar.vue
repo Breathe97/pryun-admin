@@ -74,21 +74,21 @@ const select = (route: RouteRecordRaw) => {
 // 是否已激活
 const MenusItemActive = computed(() => {
   return function (_path: string) {
-    const { path, meta } = route
+    const { path } = route
     let active = path.indexOf(_path) === 0
     return active
   }
 })
 
-const logout = async (e: any) => {
+const logout = async () => {
   await storeUser.logout()
   router.push('/login')
 }
 
-const openAccount = (e: any) => {
+const openAccount = () => {
   router.push('/account')
 }
-const openChangePwd = (e: any) => {
+const openChangePwd = () => {
   router.push('/account/account-pwd')
 }
 
@@ -101,11 +101,6 @@ const changeFullscreen = (state: boolean) => {
     document.exitFullscreen()
   }
   isFullscreen.value = state
-}
-
-// 大屏数据看板
-const goBigScreen = () => {
-  router.push('/dataBoard/index')
 }
 </script>
 <style lang="scss" scoped>

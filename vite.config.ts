@@ -11,7 +11,7 @@ const proxyObject: ProxyObject = {
   // 开发环境
   development: {
     '/api-admin-dev': {
-      target: 'https://api.pryun.vip',
+      target: 'https://testgateway.api.huabeistore.com',
       changeOrigin: true,
       rewrite: (path: string) => path.replace(new RegExp('^/api-admin-dev'), ''),
     },

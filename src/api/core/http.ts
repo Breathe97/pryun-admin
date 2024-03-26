@@ -13,7 +13,7 @@ http.interceptors.request.use(
   function (config) {
     // console.log('\x1b[38;2;0;151;255m%c%s\x1b[0m', 'color:#0097ff;padding:16px 0;', `------->Breathe:config`, config)
     const storeUser = StoreUser()
-    const headers: any = { token: storeUser.token }
+    const headers: any = { Authorization: storeUser.token }
     // 在发送请求之前做些什么
     config.headers = { ...headers, ...config.headers }
     return config

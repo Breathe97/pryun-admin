@@ -3,7 +3,7 @@
     <div class="sider-content">
       <div class="logo">
         <div class="logo-img"></div>
-        <div class="logo-text">PR云社区开放平台</div>
+        <div class="logo-text">{{ VITE_TITLE }}</div>
       </div>
       <div class="sider-view">
         <div class="menus">
@@ -44,6 +44,8 @@ import { ref, computed } from 'vue'
 import { StoreSystem } from '@/store/system'
 import { useRoute, useRouter } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
+
+const { VITE_TITLE } = import.meta.env
 
 const route = useRoute()
 const router = useRouter()

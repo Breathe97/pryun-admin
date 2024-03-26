@@ -12,7 +12,7 @@
               <div class="breadcrumb-item-text" :class="[{ 'breadcrumb-item-text-hover': Children(item).length }]">{{ item.meta?.title }}</div>
               <template v-if="Children(item).length" #dropdown>
                 <el-dropdown-menu>
-                  <el-dropdown-item v-for="(item2, index2) in Children(item)" :disabled="item2.path === $route.path" @click="select(item2.path)">{{ item2.meta?.title }}</el-dropdown-item>
+                  <el-dropdown-item v-for="item2 in Children(item)" :disabled="item2.path === $route.path" @click="select(item2.path)">{{ item2.meta?.title }}</el-dropdown-item>
                 </el-dropdown-menu>
               </template>
             </el-dropdown>
@@ -29,21 +29,28 @@
       <el-dropdown trigger="click">
         <div class="menu-btn">
           <div class="menu-icon icon-user">
-            <img class="menu-icon-img" :src="userInfo.avatar" alt="" />
+            <img class="menu-icon-img" v-if="userInfo.avatar || userInfo.headUrl || userInfo.head" :src="userInfo.avatar || userInfo.headUrl || userInfo.head" alt="" />
           </div>
-          <div class="menu-text">{{ userInfo.nickname }}</div>
+          <div class="menu-text">{{ userInfo.nickname || userInfo.realname || userInfo.supplier || '游客' }}</div>
         </div>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item>个人资料</el-dropdown-item>
-            <el-dropdown-item @click="logout">注销登录</el-dropdown-item>
+            <el-dropdown-item @click="openAccount"
+              ><el-icon><User /></el-icon>个人资料</el-dropdown-item
+            >
+            <el-dropdown-item @click="openChangePwd"
+              ><el-icon><Lock /></el-icon>修改密码</el-dropdown-item
+            >
+            <el-dropdown-item @click="logout"
+              ><el-icon><SwitchButton /></el-icon>注销登录</el-dropdown-item
+            >
           </el-dropdown-menu>
         </template>
       </el-dropdown>
     </div>
     <div class="navbar-content navbar-keepRoutes">
       <TransitionGroup class="keepRoutes-list" name="keepRoutesTansition" tag="div">
-        <div v-for="(item, index) in keepRoutes" :key="item.path" class="keepRoutes-list-item" :class="[{ 'keepRoutes-list-item-active': item.path === $route.fullPath }]" @click="select(item.path)">
+        <div v-for="item in keepRoutes" :key="item.path" class="keepRoutes-list-item" :class="[{ 'keepRoutes-list-item-active': item.path === $route.fullPath }]" @click="select(item.path)">
           <div class="keepRoutes-list-item-icon">
             <img class="keepRoutes-list-item-icon-img" :src="item.meta?.icons?.[0] || ''" alt="" />
           </div>
@@ -91,6 +98,13 @@ const close = (path: string) => {
   storeSystem.removeKeepRoutes(path)
 }
 
+const openAccount = () => {
+  router.push('/account')
+}
+const openChangePwd = () => {
+  router.push('/account/account-pwd')
+}
+
 const Breadcrumb = computed(() => {
   let arr = []
   for (const item of breadcrumb.value) {
@@ -111,7 +125,7 @@ const Children = computed(() => {
   }
 })
 
-const logout = async (e: any) => {
+const logout = async () => {
   await storeUser.logout()
   router.push('/login')
 }

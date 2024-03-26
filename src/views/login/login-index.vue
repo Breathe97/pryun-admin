@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <div class="page-title">
-      <span>PR云科技有限公司</span>
+      <span>{{ VITE_TITLE }}</span>
     </div>
     <div class="login-bg"></div>
     <div class="login-content">
@@ -11,7 +11,7 @@
           <div style="height: 200px"></div>
           <div class="title">
             <span>欢迎登录</span>
-            <span style="font-size: 12px; margin-left: 8px; cursor: pointer; color: #999999; text-decoration: underline; text-underline-offset: 0.2em" @click="useTest">使用测试账号</span>
+            <span v-if="DEV" style="font-size: 12px; margin-left: 8px; cursor: pointer; color: #999999; text-decoration: underline; text-underline-offset: 0.2em" @click="useTest">使用测试账号</span>
           </div>
           <div style="height: 40px"></div>
           <div class="mode-div">
@@ -75,13 +75,14 @@
 <script lang="ts" setup>
 import { StoreSystem } from '@/store/system'
 import { StoreUser } from '@/store/user'
-import md5 from '@/tools/md5.js'
+// import md5 from '@/tools/md5.js'
 import * as authApi from '@/api/modules/auth'
 import { ref, computed } from 'vue'
 import range from './components/range/range.vue'
 import { ElMessageBox, ElInput, ElButton } from 'element-plus'
 import { useRouter } from 'vue-router'
 
+const { DEV, VITE_TITLE } = import.meta.env
 const storeUser = StoreUser()
 const storeSystem = StoreSystem()
 const router = useRouter()
@@ -91,6 +92,7 @@ const rangeState = ref(false)
 const loading = ref(false)
 const inf = ref({
   mode: 'login', // loginBySms
+  sysType: 1,
   account: '', // 账号（用户名/手机号/邮箱）
   password: '', // 密码
   mobile: '', // 手机号码
@@ -100,7 +102,7 @@ const inf = ref({
 // 使用测试账号
 const useTest = () => {
   inf.value.mode = 'login'
-  inf.value.account = 'pryun_test'
+  inf.value.account = 'admin'
   inf.value.password = '123456'
 }
 
@@ -108,17 +110,17 @@ const login = async () => {
   loading.value = true
   await new Promise((a) => setTimeout(() => a(true), 300))
   let _inf = { ...inf.value }
-  _inf.password = md5(_inf.password)
+  // _inf.password = md5(_inf.password)
   await authApi
     .login({ data: _inf })
     .then(async (res) => {
       // console.log('\x1b[38;2;0;151;255m%c%s\x1b[0m', 'color:#0097ff;padding:16px 0;', `------->Breathe:res`, res)
-      const { code = 0, msg, data } = res
+      const { code = 0, message, data } = res
       if (code !== 200) {
         rangeState.value = false
-        ElMessageBox.alert(msg, '提示', { confirmButtonText: '好的' })
+        ElMessageBox.alert(message, '提示', { confirmButtonText: '好的' })
       }
-      storeUser.setToken(data.token || '')
+      storeUser.setToken(data.accessToken || '')
       await storeSystem.init() // 初始化系统参数
       // 登录成功
       router.push('/')

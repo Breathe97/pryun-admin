@@ -50,7 +50,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
         path: '/workbench/workbench-index',
         meta: {
           icons: [icons.workbench],
-          title: '代办事项',
+          title: '数据分析',
           showFooter: false,
         },
         component: () => import('../views/workbench/workbench-index.vue'),

@@ -37,8 +37,16 @@ export const usersPut = (options?: AxiosRequestConfig) => {
 export const usersGetInfo = (options?: AxiosRequestConfig) => {
   return http({
     method: 'GET',
-    url: '/users-get-info',
+    url: '/api/supply/user/info',
     showErrMsg: false,
+    ...options,
+  })
+}
+// 查询用户路由
+export const usersGetRoute = (options?: AxiosRequestConfig) => {
+  return http({
+    method: 'GET',
+    url: '/api/supply/menu/route',
     ...options,
   })
 }
