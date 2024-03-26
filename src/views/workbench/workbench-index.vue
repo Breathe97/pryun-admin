@@ -2,7 +2,9 @@
   <div style="padding: 20px; box-sizing: border-box">
     <Card title="销售统计">
       <div class="card-item">
-        <div class="pr-icon pr-icon-pryun"></div>
+        <svg class="pr-icon" aria-hidden="true" style="font-size: 40px">
+          <use :xlink:href="`#pr-icon-pryun`"></use>
+        </svg>
       </div>
     </Card>
   </div>
