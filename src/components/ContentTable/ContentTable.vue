@@ -19,13 +19,12 @@
 import { ElPageHeader } from 'element-plus'
 import { useRoute, useRouter } from 'vue-router'
 import { StoreSystem } from '@/store/system'
-import { nextTick } from 'vue'
 
 const route = useRoute()
 const router = useRouter()
 const storeSystem = StoreSystem()
 
-const props = defineProps({
+defineProps({
   title: {
     type: [String],
     default: '',
@@ -34,7 +33,7 @@ const props = defineProps({
 
 const goBack = async () => {
   const { fullPath, meta } = route
-  console.log('\x1b[38;2;0;151;255m%c%s\x1b[0m', 'color:#0097ff;padding:16px 0;', `------->Breathe:meta`, meta)
+  // console.log('\x1b[38;2;0;151;255m%c%s\x1b[0m', 'color:#0097ff;padding:16px 0;', `------->Breathe:meta`, meta)
   if (meta.hideInSider) {
     storeSystem.removeKeepRoutes(fullPath)
   } else {
