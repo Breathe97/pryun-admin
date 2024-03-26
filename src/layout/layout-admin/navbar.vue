@@ -1,5 +1,5 @@
 <template>
-  <div class="backdrop-filter navbar">
+  <div class="g-blur navbar">
     <div class="navbar-content">
       <div class="menu-btn" @click="storeSystem.setSiderRetract(!siderRetract)">
         <div class="menu-icon icon-list" :class="[{ 'icon-list-active': siderRetract }]"></div>

@@ -94,6 +94,7 @@ watch(
 }
 .jc-component__range {
   .jc-range {
+    padding-left: 40px;
     background-color: #e9e9e9;
     border-radius: 4px;
     overflow: hidden;

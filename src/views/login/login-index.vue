@@ -6,7 +6,7 @@
     <div class="login-bg"></div>
     <div class="login-content">
       <div class="left"></div>
-      <div class="right backdrop-filter">
+      <div class="right g-blur">
         <div class="right-content">
           <div style="height: 200px"></div>
           <div class="title">

@@ -1,5 +1,5 @@
 <template>
-  <div class="backdrop-filter navbar">
+  <div class="g-blur navbar">
     <div class="navbar-content">
       <div class="logo">
         <div class="logo-img"></div>
