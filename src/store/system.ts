@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import Layout from '@/layout/index.vue'
 import router from '@/router/index'
 import { dynamicRoutes } from '@/router/dynamicRoutes'
-import { RouteRecordRaw, stringifyQuery } from 'vue-router'
+import { RouteRecordRaw } from 'vue-router'
 import { StoreUser } from '@/store/user'
 
 // 系统相关的

@@ -23,7 +23,7 @@ export const StoreUser = defineStore('StoreUser', {
     },
     // 获取用户信息
     async usersGetInfo() {
-      const res = await userApi.usersGetInfo({ showErrMsg: true })
+      const res = await userApi.usersGetInfo()
       const { code = 0, msg, data } = res
       if (code === 200) {
         this['userInfo'] = data
