@@ -33,7 +33,7 @@ export default defineConfig(({ mode }) => {
   // 根据不同的环境获取不同的base_path
   const { VITE_BASE_PATH = '' } = loadEnv(mode, './')
 
-  const base = VITE_BASE_PATH ? `/${VITE_BASE_PATH}/` : ''
+  const base = `/${VITE_BASE_PATH}` // 默认的basePath
 
   const outDir = `dist_${VITE_BASE_PATH}` // 打包路径的命名区分
 
