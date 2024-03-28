@@ -3,50 +3,13 @@
     <div class="box">
       <div class="box-row">
         <div class="box-row-item" style="flex: 2">
-          <Card title="销售额">
-            <div class="content">
-              <div class="card-item">
-                <div class="title">今日销售量</div>
-                <div class="value">{{ detail.monthCount }}</div>
-              </div>
-              <div class="card-item">
-                <div class="title">本月销售量</div>
-                <div class="value">{{ detail.monthCount }}</div>
-              </div>
-            </div>
-          </Card>
+          <Card title="销售额" :infos="detail.infos_a"> </Card>
         </div>
         <div class="box-row-item" style="flex: 2">
-          <Card title="已销售">
-            <div class="content">
-              <div class="card-item">
-                <div class="title">待提交商品</div>
-                <div class="value">{{ detail.monthCount }}</div>
-              </div>
-              <div class="card-item">
-                <div class="title">待发货商品</div>
-                <div class="value">{{ detail.monthCount }}</div>
-              </div>
-            </div>
-          </Card>
+          <Card title="已销售" :infos="detail.infos_b"> </Card>
         </div>
         <div class="box-row-item" style="flex: 3">
-          <Card title="退换货">
-            <div class="content">
-              <div class="card-item">
-                <div class="title">退款审核</div>
-                <div class="value">{{ detail.monthCount }}</div>
-              </div>
-              <div class="card-item">
-                <div class="title">退货审核</div>
-                <div class="value">{{ detail.monthCount }}</div>
-              </div>
-              <div class="card-item">
-                <div class="title">退货验收</div>
-                <div class="value">{{ detail.monthCount }}</div>
-              </div>
-            </div>
-          </Card>
+          <Card title="退换货" :infos="detail.infos_c"> </Card>
         </div>
       </div>
     </div>
@@ -58,6 +21,19 @@ import Card from './components/card.vue'
 import * as workbenchApi from '@/api/modules/workbench'
 
 const detail = ref({
+  infos_a: [
+    { name: '今日销售量', value: 0 },
+    { name: '本月销售量', value: 0 },
+  ],
+  infos_b: [
+    { name: '待提交商品', value: 0 },
+    { name: '待发货商品', value: 0 },
+  ],
+  infos_c: [
+    { name: '退款审核', value: 0 },
+    { name: '退货审核', value: 0 },
+    { name: '退货验收', value: 0 },
+  ],
   monthCount: 0,
   todayCount: 0,
   submitSpu: 0,
