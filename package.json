@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:pro": "vite --mode production",
     "build": "vue-tsc && vite build",
-    "build:pro": "vue-tsc && vite build --mode production",
+    "dev:test": "vite --mode test",
+    "build:test": "vue-tsc && vite build --mode test",
+    "dev:pre": "vite --mode pre",
+    "build:pre": "vue-tsc && vite build --mode pre",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -15,6 +17,7 @@
     "element-plus": "^2.6.1",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",
+    "pr-tools": "^1.0.9",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },

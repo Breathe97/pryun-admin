@@ -75,7 +75,7 @@
 <script lang="ts" setup>
 import { StoreSystem } from '@/store/system'
 import { StoreUser } from '@/store/user'
-import md5 from '@/tools/md5.js'
+import { md5 } from 'pr-tools'
 import * as authApi from '@/api/modules/auth'
 import { ref, computed } from 'vue'
 import range from './components/range/range.vue'

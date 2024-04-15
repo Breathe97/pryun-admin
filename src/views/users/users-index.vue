@@ -80,7 +80,7 @@
 </template>
 <script lang="ts" setup>
 import { ElTable, ElTableColumn, ElPagination, ElButton, ElInput, ElAvatar, ElTag, ElPopover, ElIcon } from 'element-plus'
-import { timeFrom } from '@/tools/index'
+import { timeFrom } from 'pr-tools'
 
 import * as userApi from '@/api/modules/user'
 import { Search } from '@element-plus/icons-vue'
