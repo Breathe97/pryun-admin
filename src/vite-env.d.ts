@@ -8,6 +8,12 @@ declare module 'vite' {
   export { UserConfig }
 }
 
+interface ImportMetaEnv {
+  readonly VITE_BASE: string // 默认接口地址
+  readonly VITE_BASE_PATH: string // 全局前置路径
+  // 更多环境变量...
+}
+
 declare module '*.vue' {
   import type { defineComponent } from 'vue'
   const Component: defineComponent<{}, {}, any>
