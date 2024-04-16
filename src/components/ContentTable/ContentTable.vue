@@ -48,19 +48,19 @@ const goBack = async () => {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  .card-content {
-    height: 0;
-    flex: 1;
-    background-color: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 0 20px 20px rgba(173, 173, 173, 0.1);
-    .back {
-      padding: 0 20px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-    }
-  }
+}
+.card-content {
+  height: 0;
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px 20px rgba(173, 173, 173, 0.1);
+}
+.back {
+  padding: 0 20px;
+  height: 60px;
+  display: flex;
+  align-items: center;
 }
 </style>
