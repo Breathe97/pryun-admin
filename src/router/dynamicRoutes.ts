@@ -133,7 +133,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
     name: 'system',
     path: '/system',
     meta: { icons: [icons.set], title: '系统管理' },
-    // redirect: '/system/system-theme',
+    redirect: '/system/system-role',
     children: [
       {
         name: 'system-role',
@@ -174,6 +174,3 @@ export const dynamicRoutes: RouteRecordRaw[] = [
     ],
   },
 ]
-
-
-
