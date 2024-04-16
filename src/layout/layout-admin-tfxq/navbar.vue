@@ -3,7 +3,7 @@
     <div class="navbar-content">
       <div class="logo">
         <div class="logo-img"></div>
-        <div class="logo-text">天府新区可视化报表系统</div>
+        <div class="logo-text">方孔元石管理平台</div>
       </div>
       <div class="content-flex-1">
         <div class="menus">

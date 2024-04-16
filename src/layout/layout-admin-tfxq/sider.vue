@@ -1,10 +1,6 @@
 <template>
   <div class="sider" :class="[{ 'sider-min': siderRetract }]">
     <div class="sider-content">
-      <!-- <div class="logo">
-        <div class="logo-img"></div>
-        <div class="logo-text">PR云社区开放平台</div>
-      </div> -->
       <div class="sider-view">
         <div class="menus">
           <div v-for="(item, index) in dynamicRoutes" :key="index">
