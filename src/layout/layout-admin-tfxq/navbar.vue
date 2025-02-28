@@ -3,7 +3,7 @@
     <div class="navbar-content">
       <div class="logo">
         <div class="logo-img"></div>
-        <div class="logo-text">方孔元石管理平台</div>
+        <div class="logo-text">{{ VITE_APP_TITLE || 'PR云管理平台' }}</div>
       </div>
       <div class="content-flex-1">
         <div class="menus">
@@ -46,6 +46,8 @@ import { StoreUser } from '@/store/user'
 import { StoreSystem } from '@/store/system'
 import { computed, ref } from 'vue'
 import type { RouteRecordRaw } from 'vue-router'
+
+const { VITE_APP_TITLE } = import.meta.env
 
 const route = useRoute()
 const router = useRouter()
