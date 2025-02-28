@@ -11,7 +11,7 @@ import ContentView from './components/ContentView/ContentView.vue'
 
 import { computed } from 'vue'
 
-const role = 'super' // 可能需要根据角色来动态显示不同的布局
+const role = 'admin' // 可能需要根据角色来动态显示不同的布局
 
 const layoutList = {
   admin: LayoutAdmin,
